@@ -148,3 +148,57 @@
     object-fit: fill;
 }
 
+
+/*social fixed*/
+.socialFixe li{
+    list-style: none;
+    background-color: black;
+    padding-left: 50px;
+    margin-top: 10px;
+    border-radius: 0 10px 10px 0 ;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    margin-left: -120px;
+    color: white;
+}
+.socialFixe li:active{
+    transform: translate(120px);
+    transition-duration: 1s;
+}
+
+.socialFixe {
+    position: fixed;
+    left: -50px;
+    top: 300px;
+    text-align: right;
+    
+}
+
+.socialFixe .fab {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    background-color: white ;
+    border-radius: 50%;
+    margin-right: 2px;
+    text-align: center;
+    color: black;
+    margin-left: 15px;
+}
+
+.socialFixe li:first-child{
+    background-color: rgb(37, 37, 170);
+}
+.socialFixe li:nth-child(2){
+    background-color: turquoise;
+}
+.socialFixe li:nth-child(3){
+    background-color: rgb(74, 73, 167);
+}
+.socialFixe li:nth-child(4){
+    background-color: purple;
+}
+.socialFixe li:last-child{
+    background-color: red;
+}
