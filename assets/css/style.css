@@ -1,15 +1,20 @@
 /* menu */
-.navbar{
+.navbar {
     width: 80%;
     margin-left: 20%;
-
+    position: absolute;
+    top: 5px;
 }
-.buttonSearch{
+
+.form {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+.buttonSearch {
     background-color: wheat;
     border-radius: 0px 10px 10px 0;
     height: 35px;
-    margin-top: -5px;
-    margin-left: -5px;
 
 }
 
@@ -18,33 +23,128 @@
     border-radius: 10px 0 0 10px;
     height: 35px;
     border: black;
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    
 }
 
 .contact {
-color: rgb(155, 141, 141);
-font-weight:bold;
-text-align: right;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    position: absolute;
+    left: 400px;
+    font-size: 150%;
 }
 
 .home {
-    color: rgb(190, 11, 11);
+    color: rgb(230, 21, 21);
     font-weight: bold;
-    }
-
-.logo{
-    font-size: 300%;
+    font-size: 150%;
 }
 
-.logo1{
-    color:rgb(190, 11, 11) ;
-}
-
-.toggler{
+.logo {
+    font-size: 250%;
+    font-weight: bolder;
     position: absolute;
-    right: 10px;
-    top:20px
+    top:35px;
+    left:35px;
 }
-.drop{
-    color: rgb(190, 11, 11);
+
+.logo1 {
+    color: rgb(230, 21, 21);
+    
+}
+.logo2 {
+    color: white;
+}
+
+
+.drop {
+    color: rgb(230, 21, 21);
     font-weight: bold;
+    font-size: 150%;
 }
+
+
+/* jumbo */
+
+.jumbo {
+    display: inline-block;
+    margin-top: -80px;
+    height: 600px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top:300px
+}
+
+.jumbo h2 {
+    font-size: 50%;
+    letter-spacing: 4px;
+
+
+}
+
+.jumbo h1 {
+    opacity: 1;
+    font-weight: bolder;
+    font-size: 200%;
+    letter-spacing: 2px;
+    
+}
+.jumbo button{
+    height: 30px;
+    background-color: rgb(230, 21, 21);
+    border: 0;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.footerJumbo {
+    width: 100%;
+    background-color: rgb(230, 21, 21);
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    padding-left: 30px;
+    position: absolute;
+    top: 350px;
+    text-align: left;
+}
+
+.footerJumbo button {
+    background-color: black;
+    color: white;
+    border: 0;
+    margin-left: 20px;
+}
+
+.images{
+    opacity: 0.6;
+    width: 100%;
+    height: 600px;
+    z-index: -1;
+    overflow: hidden;
+    
+}
+
+.img{
+    object-fit: fill;
+    width: 100vw;
+    height: 600px;
+    
+}
+
+.opac{
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: fill;
+}
+
