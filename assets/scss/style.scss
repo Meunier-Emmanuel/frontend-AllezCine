@@ -118,3 +118,17 @@ aside{
     background-color: $colorBlack;
     border: 1px solid $colorBlack;
 }
+
+
+.movies{
+    display: inline-flex;
+    height: 250px;
+    width: 75%;
+    margin-left: 150px;
+    
+    margin-top: 70px;
+    justify-content: space-between;
+    .card {
+        margin-left: 20px;
+    }
+}
