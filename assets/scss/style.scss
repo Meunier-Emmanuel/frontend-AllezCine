@@ -86,16 +86,21 @@ aside{
 #reseauxSociaux{
     border-top: 2px solid rgb(29, 29, 29);
     margin-top: 8%;
+    
     ul{
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-left: 0px;
         padding-left: 0px;
+        
+
+
         li{
             padding: 3px;
             border: 1px solid white;
             margin-left: 5px;
+            list-style: none;
             a {
                 padding: 10px 5px;
                 color: white;
