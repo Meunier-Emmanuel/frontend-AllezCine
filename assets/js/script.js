@@ -130,7 +130,8 @@ async function getDataTopRate() {
     for (let i = 1; i <= 5; i++) {
         document.querySelector(`#imgCard${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w200" + response.results[i].backdrop_path)
         document.querySelector(`#cardTitle${i}`).textContent = response.results[i].title
-        document.querySelector(`#cardDate${i}`).textContent = response.results[i].release_date
+        let date = response.results[i].release_date.slice(0,4)
+        document.querySelector(`#cardDate${i}`).textContent = date
         // document.querySelector(`#cardGenre${i}`).textContent = response.results[i].
         console.log(response)
     }
