@@ -9,6 +9,7 @@ footer {
 
 #h2Subscribe {
     color: $colorRed;
+    padding-top: 40px;
 }
 
 #buttonSubscribe{
@@ -24,26 +25,26 @@ footer {
     padding-bottom: 10px;
     padding-top: 10px;
 
-}
-
-
-ul {
-    list-style: none;
-    padding-left: 0px;
-    
-    li {
-        text-align: left;
-        a {
-            text-decoration: none !important;
-            color: grey;
-            
-        }
-        a:hover {
-            text-decoration: none !important;
-            color: grey;
+    ul {
+        list-style: none;
+        padding-left: 0px;
+        
+        li {
+            text-align: left;
+            a {
+                text-decoration: none !important;
+                color: grey;
+                
+            }
+            a:hover {
+                text-decoration: none !important;
+                color: grey;
+            }
         }
     }
 }
+
+
 
 .review {
     color: white;
@@ -85,16 +86,21 @@ aside{
 #reseauxSociaux{
     border-top: 2px solid rgb(29, 29, 29);
     margin-top: 8%;
+    
     ul{
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-left: 0px;
         padding-left: 0px;
+        
+
+
         li{
             padding: 3px;
             border: 1px solid white;
             margin-left: 5px;
+            list-style: none;
             a {
                 padding: 10px 5px;
                 color: white;
@@ -111,5 +117,4 @@ aside{
     }
     background-color: $colorBlack;
     border: 1px solid $colorBlack;
-    
 }
