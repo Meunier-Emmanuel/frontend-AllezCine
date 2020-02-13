@@ -1,5 +1,36 @@
 $colorRed : #FF4240;
 $colorBlack : rgb(13, 13, 13);
+
+.featuresMovies{
+    #h2Features{
+        border-left: 4px solid $colorRed;
+        text-transform: uppercase;
+    }
+    .buttonRed{
+        background-color: $colorRed;
+        color: white;
+        text-align: center;
+        border: 1px solid $colorRed;
+        padding: 10px 2px;
+        
+    }
+    .buttonGrey{
+        background-color: grey;
+        border: 1px solid grey;
+        padding: 5px 2px;
+    }
+    .hide{
+        display: none;
+    }
+    #moreFeatures{
+        text-transform: uppercase;
+    }
+    #lessFeatures{
+        text-transform: uppercase;
+        display: none;
+    }
+}
+
 footer {
     background-color: $colorBlack;
     color: white;

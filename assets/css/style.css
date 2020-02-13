@@ -1,3 +1,35 @@
+.featuresMovies #h2Features {
+  border-left: 4px solid #FF4240;
+  text-transform: uppercase;
+}
+
+.featuresMovies .buttonRed {
+  background-color: #FF4240;
+  color: white;
+  text-align: center;
+  border: 1px solid #FF4240;
+  padding: 10px 2px;
+}
+
+.featuresMovies .buttonGrey {
+  background-color: grey;
+  border: 1px solid grey;
+  padding: 5px 2px;
+}
+
+.featuresMovies .hide {
+  display: none;
+}
+
+.featuresMovies #moreFeatures {
+  text-transform: uppercase;
+}
+
+.featuresMovies #lessFeatures {
+  text-transform: uppercase;
+  display: none;
+}
+
 footer {
   background-color: #0d0d0d;
   color: white;
