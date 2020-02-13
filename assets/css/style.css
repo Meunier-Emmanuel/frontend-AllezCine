@@ -32,6 +32,11 @@
   display: none;
 }
 
+.shopMovies #h2Shop {
+  border-left: 4px solid #FF4240;
+  text-transform: uppercase;
+}
+
 footer {
   background-color: #0d0d0d;
   color: white;
