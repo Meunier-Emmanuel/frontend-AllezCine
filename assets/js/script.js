@@ -3,36 +3,37 @@
 document.querySelector("#signUp").addEventListener("click", () => {
     document.querySelector("#sign").style.display = "block"
 
-})
+});
 document.querySelector(".cancel").addEventListener("click", () => {
     document.querySelector("#sign").style.display = "none"
 
-})
+});
 document.querySelector("#logIn").addEventListener("click", () => {
     document.querySelector("#login").style.display = "block"
-})
+});
 document.querySelector("#cancel").addEventListener("click", () => {
     document.querySelector("#login").style.display = "none"
-})
+});
 
 document.querySelector("#registerLink").addEventListener("click", () => {
     document.querySelector("#login").style.display = "none"
     document.querySelector("#sign").style.display = "block"
-})
+});
 document.querySelector("#signLink").addEventListener("click", () => {
     document.querySelector("#login").style.display = "block"
     document.querySelector("#sign").style.display = "none"
-})
+});
 document.querySelector("#buttonContact").addEventListener("click", () => {
     document.querySelector("#formContact").style.display = "block"
-})
+});
 
 
 
 // API
 //genre 
 
-const genres = [{
+const genres = [
+    {
         "id": 28,
         "name": "Action"
     },
@@ -108,19 +109,19 @@ const genres = [{
         "id": 37,
         "name": "Western"
     }
-]
+];
 
 
 async function getupComing() {
-    let data = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1")
-    let response = await data.json()
+    let data = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
+    let response = await data.json();
     // console.log(response);
-    let id = []
+    let id = [];
     response.results.forEach(element => {
-        id.push(element.id)
+        id.push(element.id);
     });
-    let trailer = ""
-    let compt =1
+    let trailer = "";
+    let compt =1;
     id.forEach(async element =>{
         trailer = await fetch(`https://api.themoviedb.org/3/movie/${element}/videos?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR`)
         trailer = await trailer.json()
@@ -132,18 +133,18 @@ async function getupComing() {
         document.querySelector(`#film${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
     }
 }
-getupComing()
+getupComing();
 
 //movies 
 async function getDataTopRate() {
-    let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1")
+    let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
     let response = await data.json()
     for (let i = 1; i <= 5; i++) {
-        document.querySelector(`#imgCard${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w200" + response.results[i].backdrop_path)
-        document.querySelector(`#cardTitle${i}`).textContent = response.results[i].title
-        let date = response.results[i].release_date.slice(0,4)
-        document.querySelector(`#cardDate${i}`).textContent = date
-        let tab=[]
+        document.querySelector(`#imgCard${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w200" + response.results[i].backdrop_path);
+        document.querySelector(`#cardTitle${i}`).textContent = response.results[i].title;
+        let date = response.results[i].release_date.slice(0,4);
+        document.querySelector(`#cardDate${i}`).textContent = date;
+        let tab=[];
         response.results[i].genre_ids.forEach(el=>{
         genres.forEach(e=>{
             if(el === e.id){
@@ -153,9 +154,9 @@ async function getDataTopRate() {
     })
 document.querySelector(`#cardGenre${i}`).textContent =tab.toString()
     }
-        
-}
-getDataTopRate()
+       
+};
+getDataTopRate();
 
 //footer bouton
 let boutonVersTop = document.createElement("button");
