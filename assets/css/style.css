@@ -9,12 +9,14 @@
   text-align: center;
   border: 1px solid #FF4240;
   padding: 10px 2px;
+  font-weight: bold;
 }
 
 .featuresMovies .buttonGrey {
-  background-color: grey;
-  border: 1px solid grey;
+  background-color: #F1F1F1;
+  border: 1px solid #F1F1F1;
   padding: 5px 2px;
+  font-weight: bold;
 }
 
 .featuresMovies .hide {
@@ -23,6 +25,7 @@
 
 .featuresMovies #moreFeatures {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .featuresMovies #lessFeatures {
