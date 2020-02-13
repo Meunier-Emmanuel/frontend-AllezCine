@@ -122,10 +122,8 @@ async function getupComing() {
     let trailer = ""
     let compt =1
     id.forEach(async element =>{
-        console.log(element);
         trailer = await fetch(`https://api.themoviedb.org/3/movie/${element}/videos?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR`)
         trailer = await trailer.json()
-        console.log(trailer.results[compt].key);
         compt ++
         // document.querySelector("#trailer").setAttribute("src",`https://www.youtube.com/watch?v=${trailer.results[compt].key}`)
         // problème qu'un seul bouton -> carousel -> crée nouveau bouton ou un timer pour que la source change en même temps que les photos
@@ -147,7 +145,6 @@ async function getDataTopRate() {
         document.querySelector(`#cardDate${i}`).textContent = date
         let tab=[]
         response.results[i].genre_ids.forEach(el=>{
-            console.log(el);
         genres.forEach(e=>{
             if(el === e.id){
                 tab.push(e.name)
@@ -155,33 +152,12 @@ async function getDataTopRate() {
         })
     })
 document.querySelector(`#cardGenre${i}`).textContent =tab.toString()
-    for (let i = 1; i < 5; i++) {
-        document.querySelector(`#film${i}`).setAttribute("src","https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
     }
         
 }
 getDataTopRate()
 
 //footer bouton
-GetDataTopRate()
-
-
-document.getElementById("moreFeatures").addEventListener("click", () => {
-    let hide = Array.from(document.getElementsByClassName("hide"));
-    hide.forEach(element => {
-        element.style.display = "flex";
-    });
-    document.getElementById("moreFeatures").style.display = "none";
-    document.getElementById("lessFeatures").style.display = "flex";
-    document.getElementById("lessFeatures").addEventListener("click", () => {
-        hide.forEach(element => {
-            element.style.display = "none";
-        });
-        document.getElementById("lessFeatures").style.display = "none";
-        document.getElementById("moreFeatures").style.display = "flex";
-    });
-});
-
 let boutonVersTop = document.createElement("button");
 boutonVersTop.setAttribute("class", "col-1 col-md-1 offset-md-10");
 boutonVersTop.setAttribute("id", "arrowUp");
@@ -197,4 +173,26 @@ document.getElementById("reseauxSociaux").addEventListener("click", () => {
         behaviour: "smooth"
     });
 });
-}
+
+
+document.getElementById("moreFeatures").addEventListener("click", () => {
+    let hide = Array.from(document.getElementsByClassName("hide"));
+    console.log(hide);
+    
+    hide.forEach(element => {
+        element.style.display = "flex";
+    });
+    document.getElementById("moreFeatures").style.display = "none";
+    document.getElementById("lessFeatures").style.display = "flex";
+    document.getElementById("lessFeatures").addEventListener("click", () => {
+        hide.forEach(element => {
+            element.style.display = "none";
+        });
+        document.getElementById("lessFeatures").style.display = "none";
+        document.getElementById("moreFeatures").style.display = "flex";
+    });
+});
+
+let hauteurY = document.getElementById("header").offsetHeight;
+let positionYtop = document.getElementById("header").offsetTop;
+let positionYbottom = positionYtop + hauteurY;
