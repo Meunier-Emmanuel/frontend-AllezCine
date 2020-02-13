@@ -155,12 +155,33 @@ async function getDataTopRate() {
         })
     })
 document.querySelector(`#cardGenre${i}`).textContent =tab.toString()
+    for (let i = 1; i < 5; i++) {
+        document.querySelector(`#film${i}`).setAttribute("src","https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
     }
         
 }
 getDataTopRate()
 
 //footer bouton
+GetDataTopRate()
+
+
+document.getElementById("moreFeatures").addEventListener("click", () => {
+    let hide = Array.from(document.getElementsByClassName("hide"));
+    hide.forEach(element => {
+        element.style.display = "flex";
+    });
+    document.getElementById("moreFeatures").style.display = "none";
+    document.getElementById("lessFeatures").style.display = "flex";
+    document.getElementById("lessFeatures").addEventListener("click", () => {
+        hide.forEach(element => {
+            element.style.display = "none";
+        });
+        document.getElementById("lessFeatures").style.display = "none";
+        document.getElementById("moreFeatures").style.display = "flex";
+    });
+});
+
 let boutonVersTop = document.createElement("button");
 boutonVersTop.setAttribute("class", "col-1 col-md-1 offset-md-10");
 boutonVersTop.setAttribute("id", "arrowUp");
