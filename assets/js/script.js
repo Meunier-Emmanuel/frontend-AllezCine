@@ -197,7 +197,4 @@ document.getElementById("reseauxSociaux").addEventListener("click", () => {
         behaviour: "smooth"
     });
 });
-
-let hauteurY = document.getElementById("header").offsetHeight;
-let positionYtop = document.getElementById("header").offsetTop;
-let positionYbottom = positionYtop + hauteurY;
+}

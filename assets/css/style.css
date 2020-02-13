@@ -25,7 +25,6 @@
 
 .featuresMovies #moreFeatures {
   text-transform: uppercase;
-  text-align: center;
 }
 
 .featuresMovies #lessFeatures {
@@ -163,5 +162,22 @@ aside #cine {
   background-color: white;
   border: 2px solid #FF4240;
   border-radius: 50%;
+}
+
+.movies {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 250px;
+  width: 75%;
+  margin-left: 150px;
+  margin-top: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.movies .card {
+  margin-left: 20px;
 }
 /*# sourceMappingURL=style.css.map */
