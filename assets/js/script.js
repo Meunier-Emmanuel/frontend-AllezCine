@@ -111,14 +111,27 @@ const genres = [{
 ]
 
 
-
 async function getupComing() {
     let data = await fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1")
     let response = await data.json()
+    // console.log(response);
+    let id = []
+    response.results.forEach(element => {
+        id.push(element.id)
+    });
+    let trailer = ""
+    let compt =1
+    id.forEach(async element =>{
+        console.log(element);
+        trailer = await fetch(`https://api.themoviedb.org/3/movie/${element}/videos?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR`)
+        trailer = await trailer.json()
+        console.log(trailer.results[compt].key);
+        compt ++
+        // document.querySelector("#trailer").setAttribute("src",`https://www.youtube.com/watch?v=${trailer.results[compt].key}`)
+        // problème qu'un seul bouton -> carousel -> crée nouveau bouton ou un timer pour que la source change en même temps que les photos
+    });
     for (let i = 1; i <= 4; i++) {
         document.querySelector(`#film${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
-        console.log(i);
-
     }
 }
 getupComing()
@@ -132,14 +145,20 @@ async function getDataTopRate() {
         document.querySelector(`#cardTitle${i}`).textContent = response.results[i].title
         let date = response.results[i].release_date.slice(0,4)
         document.querySelector(`#cardDate${i}`).textContent = date
-        // document.querySelector(`#cardGenre${i}`).textContent = response.results[i].
-        console.log(response)
+        let tab=[]
+        response.results[i].genre_ids.forEach(el=>{
+            console.log(el);
+        genres.forEach(e=>{
+            if(el === e.id){
+                tab.push(e.name)
+        }
+        })
+    })
+document.querySelector(`#cardGenre${i}`).textContent =tab.toString()
     }
+        
 }
 getDataTopRate()
-
-
-
 
 //footer bouton
 let boutonVersTop = document.createElement("button");
