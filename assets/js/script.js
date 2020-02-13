@@ -42,7 +42,7 @@ async function GetDataTopRate() {
     let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1")
     let response = await data.json()
     for (let i = 1; i < 5; i++) {
-        document.querySelector(`#film${i}`).setAttribute("src","https://image.tmdb.org/t/p/w200" + response.results[i].backdrop_path)
+        document.querySelector(`#film${i}`).setAttribute("src","https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
     }
 }
 GetDataTopRate()
