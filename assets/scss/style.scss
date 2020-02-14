@@ -166,3 +166,19 @@ aside{
         
     }
 }
+
+.shopMovies{
+    #h2Shop{
+        border-left: 4px solid $colorRed;
+        text-transform: uppercase;
+    }
+    .detailsShopMovies{
+        background-color: black;
+        .h3h5Shop{
+            color: $colorRed;
+        }
+        p {
+            color: white;
+        }
+    }
+}

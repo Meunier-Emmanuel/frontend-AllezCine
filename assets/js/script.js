@@ -129,7 +129,7 @@ async function getupComing() {
         // document.querySelector("#trailer").setAttribute("src",`https://www.youtube.com/watch?v=${trailer.results[compt].key}`)
         // problème qu'un seul bouton -> carousel -> crée nouveau bouton ou un timer pour que la source change en même temps que les photos
     });
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 3; i++) {
         document.querySelector(`#film${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[i].backdrop_path)
     }
 }
@@ -194,6 +194,37 @@ document.getElementById("moreFeatures").addEventListener("click", () => {
     });
 });
 
-let hauteurY = document.getElementById("header").offsetHeight;
-let positionYtop = document.getElementById("header").offsetTop;
-let positionYbottom = positionYtop + hauteurY;
+    
+async function getPopular(){
+    let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
+    let response = await data.json()
+    let l=0
+    let j=0
+    let k = 0
+    let movieFeature = document.querySelectorAll(".feature")
+    let titleFeature = document.querySelectorAll(".titleFeature")
+    let yearFeature = document.querySelectorAll(".yearFeature")
+    titleFeature.forEach(e => {
+        
+        if(j <=19){
+        e.textContent=response.results[j].title
+        j++}
+    });
+    yearFeature.forEach(e => {
+        
+        if(l <=19){
+        e.textContent=response.results[l].release_date.slice(0,4)
+        l++}
+    });
+    movieFeature.forEach(e => {
+        if(k <=19){
+        e.removeAttribute("src")
+        e.setAttribute("src","https://image.tmdb.org/t/p/w500" + response.results[k].backdrop_path)
+        k++}
+    });
+}
+getPopular()
+
+
+
+
