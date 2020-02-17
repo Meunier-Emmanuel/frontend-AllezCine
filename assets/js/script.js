@@ -32,8 +32,7 @@ document.querySelector("#buttonContact").addEventListener("click", () => {
 // API
 //genre 
 
-const genres = [
-    {
+const genres = [{
         "id": 28,
         "name": "Action"
     },
@@ -121,11 +120,11 @@ async function getupComing() {
         id.push(element.id);
     });
     let trailer = "";
-    let compt =1;
-    id.forEach(async element =>{
+    let compt = 1;
+    id.forEach(async element => {
         trailer = await fetch(`https://api.themoviedb.org/3/movie/${element}/videos?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR`)
         trailer = await trailer.json()
-        compt ++
+        compt++
         // document.querySelector("#trailer").setAttribute("src",`https://www.youtube.com/watch?v=${trailer.results[compt].key}`)
         // problème qu'un seul bouton -> carousel -> crée nouveau bouton ou un timer pour que la source change en même temps que les photos
     });
@@ -142,19 +141,19 @@ async function getDataTopRate() {
     for (let i = 1; i <= 5; i++) {
         document.querySelector(`#imgCard${i}`).setAttribute("src", "https://image.tmdb.org/t/p/w200" + response.results[i].backdrop_path);
         document.querySelector(`#cardTitle${i}`).textContent = response.results[i].title;
-        let date = response.results[i].release_date.slice(0,4);
+        let date = response.results[i].release_date.slice(0, 4);
         document.querySelector(`#cardDate${i}`).textContent = date;
-        let tab=[];
-        response.results[i].genre_ids.forEach(el=>{
-        genres.forEach(e=>{
-            if(el === e.id){
-                tab.push(e.name)
-        }
+        let tab = [];
+        response.results[i].genre_ids.forEach(el => {
+            genres.forEach(e => {
+                if (el === e.id) {
+                    tab.push(e.name)
+                }
+            })
         })
-    })
-document.querySelector(`#cardGenre${i}`).textContent =tab.toString()
+        document.querySelector(`#cardGenre${i}`).textContent = tab.toString()
     }
-       
+
 };
 getDataTopRate();
 
@@ -179,7 +178,7 @@ document.getElementById("reseauxSociaux").addEventListener("click", () => {
 document.getElementById("moreFeatures").addEventListener("click", () => {
     let hide = Array.from(document.getElementsByClassName("hide"));
     console.log(hide);
-    
+
     hide.forEach(element => {
         element.style.display = "flex";
     });
@@ -194,37 +193,142 @@ document.getElementById("moreFeatures").addEventListener("click", () => {
     });
 });
 
-    
-async function getPopular(){
+async function getPopular() {
     let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
     let response = await data.json()
-    let l=0
-    let j=0
+    let l = 0
+    let j = 0
     let k = 0
     let movieFeature = document.querySelectorAll(".feature")
     let titleFeature = document.querySelectorAll(".titleFeature")
     let yearFeature = document.querySelectorAll(".yearFeature")
     titleFeature.forEach(e => {
-        
-        if(j <=19){
-        e.textContent=response.results[j].title
-        j++}
+
+            e.textContent = response.results[j].title
+            j++
     });
     yearFeature.forEach(e => {
-        
-        if(l <=19){
-        e.textContent=response.results[l].release_date.slice(0,4)
-        l++}
+
+            e.textContent = response.results[l].release_date.slice(0, 4)
+            l++
     });
     movieFeature.forEach(e => {
-        if(k <=19){
-        e.removeAttribute("src")
-        e.setAttribute("src","https://image.tmdb.org/t/p/w500" + response.results[k].backdrop_path)
-        k++}
+            e.removeAttribute("src")
+            e.setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[k].backdrop_path)
+            k++
     });
 }
 getPopular()
 
 
+async function getAction() {
+    let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
+    let response = await data.json()
+    let k = 0
+    let movieFeature = document.querySelectorAll(".feature")
+    let titleFeature = document.querySelectorAll(".titleFeature")
+    let yearFeature = document.querySelectorAll(".yearFeature")
+                    for (let j = 0; j < response.results.length; j++) {
+                        console.log(response.results[j]);
+                        if(response.results[j].genre_ids.includes(28) === true ){
+                                titleFeature[k].innerHTML = response.results[j].title
+                                movieFeature[k].removeAttribute("src")
+                                movieFeature[k].setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[j].backdrop_path)
+                                yearFeature[k].innerHTML = response.results[j].release_date.slice(0, 4)
+                                k++
+                                console.log(k);
+                            if(k===11)
+                            break
+                        
+                    }
+                    }
+}
+async function getFant() {
+    let data = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=fce8cbf1171b45ecfb9db01f98832cef&language=fr-FR&page=1");
+    let response = await data.json()
+    let k = 0
+    let movieFeature = document.querySelectorAll(".feature")
+    let titleFeature = document.querySelectorAll(".titleFeature")
+    let yearFeature = document.querySelectorAll(".yearFeature")
+                    for (let j = 0; j < response.results.length; j++) {
+                        console.log(response.results[j]);
+                        if(response.results[j].genre_ids.includes(14) === true ){
+                                titleFeature[k].innerHTML = response.results[j].title
+                                movieFeature[k].removeAttribute("src")
+                                movieFeature[k].setAttribute("src", "https://image.tmdb.org/t/p/w500" + response.results[j].backdrop_path)
+                                yearFeature[k].innerHTML = response.results[j].release_date.slice(0, 4)
+                                k++
+                                console.log(k);
+                            if(k===11)
+                            break
+                        
+                    }
+                    }
+}
+document.querySelector(".fantastique").addEventListener("click", () => {
+    document.querySelector(".all").style.background="white"
+    document.querySelector(".all").style.color="black"
+    document.querySelector(".action").style.background="white"
+    document.querySelector(".action").style.color="black"
+    document.querySelector(".fantastique").style.color="white"
+    document.querySelector(".fantastique").style.background="red"
+    
+    getFant()
+   
+})
+document.querySelector(".action").addEventListener("click", () => {
+    getAction()
+    document.querySelector(".all").style.background="white"
+    document.querySelector(".all").style.color="black"
+    document.querySelector(".action").style.color="white"
+    document.querySelector(".action").style.background="red"
+    document.querySelector(".fantastique").style.background="white"
+    document.querySelector(".fantastique").style.color="black"
+    
+    
+})
 
+// shopmovie
+let shopCardId = ["shop0", "shop1", "shop2", "shop3", "shop4", "shop5", "shop6", "shop7"];
+let shopMovies = [];
+let cardActive;
+for (element of shopCardId) {
+    shopMovies.push(document.getElementById(element));
+};
+let source = "https://www.youtube.com/embed/BQMHRQvRmGQ";//aller chercher trailers Api
+let descriptionShop = "description film qui correspond à celui de card via api";//descriptions Api
+let genreShop = "idem descr";
+shopMovies.forEach(element => {
+    function detail(element) {
+        document.getElementById('detailsShopMoviesId').style.display = "block";
+        document.getElementById('trailerShopMovie').setAttribute('src',source);
+        document.getElementById('detailTitle').innerHTML = element.getElementsByClassName('card-title').item(0).innerHTML;
+        document.getElementById('detailDescription').innerHTML = descriptionShop;
+        document.getElementById('detailRelease').innerHTML = element.getElementsByClassName('card-text').item(0).innerHTML;
+        document.getElementById('detailGenre').innerHTML = genreShop;
+        document.getElementById('detailPrice').innerHTML = element.getElementsByClassName('card-text').item(1).innerHTML;
+    }
 
+    element.addEventListener("click", () => {    
+        detail(element);
+        cardActive = shopMovies.indexOf(element);
+    });
+    
+    document.getElementById('previousShopMovie').addEventListener("click", () => {
+        if (!shopMovies[--cardActive]) { cardActive = shopMovies.length - 1; }
+        detail(shopMovies[cardActive]);
+    });
+
+    document.getElementById('nextShopMovie').addEventListener("click", () => {
+        if (!shopMovies[++cardActive]) { cardActive = 0; }
+        detail(shopMovies[cardActive]);
+    });
+});
+document.getElementById('previousShopMovie').addEventListener("click", () => {
+    if (!shopMovies[--cardActive]) { cardActive = shopMovies.length - 1; }
+    detail(shopMovies[cardActive]);
+});
+document.getElementById('nextShopMovie').addEventListener("click", () => {
+    if (!shopMovies[++cardActive]) { cardActive = 0; }
+    detail(shopMovies[cardActive]);
+});
