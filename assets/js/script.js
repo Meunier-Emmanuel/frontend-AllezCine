@@ -168,10 +168,8 @@ icon.setAttribute("class", "far fa-arrow-alt-circle-up fa-2x");
 icon.setAttribute("id", "imgLien")
 document.getElementById("arrowUp").appendChild(icon);
 
-document.getElementById("reseauxSociaux").addEventListener("click", () => {
-    document.getElementById("header").scrollIntoView(true, {
-        behaviour: "smooth"
-    });
+document.getElementById("reseauxSociaux").addEventListener("click", () =>{
+    document.getElementById("header").scrollIntoView(true, {behaviour:"smooth"});
 });
 
 
